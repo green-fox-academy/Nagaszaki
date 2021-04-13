@@ -23,14 +23,14 @@ for(var i=1; i<=lineCount; i++){
             stars+=" ";
         }
         for(var j=1; j<=i; j++){
-            stars+="* ";
+            stars+="*";
         }
     } else {
         for(var k=lineCount; k>=( lineCount-(i-2) ); k--){
             stars+=" ";
         }
         for(var j=lineCount; j>=i; j--){
-            stars+="* ";
+            stars+="*";
         }
     }
     console.log(stars);
