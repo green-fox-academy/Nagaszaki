@@ -1,5 +1,4 @@
 'use strict'
-export{}
 
 /*
 Create a Sharpie class
@@ -12,7 +11,7 @@ Every sharpie is created with a default inkAmount value: 100
 We can use() the sharpie objects: using it decreases inkAmount by 10
 */
 
-class Sharpie {
+export class Sharpie {
     color: string;
     width: number;
     inkAmmount: number = 100;
