@@ -9,7 +9,7 @@ Create an Animal class
     Every animal can play() which increases both its hunger and thirst by one
 */
 
-class Animal{
+export class Animal{
     hunger: number = 50;
     thirst: number = 50;
     public eat(){
