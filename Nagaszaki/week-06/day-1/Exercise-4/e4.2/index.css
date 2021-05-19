@@ -1,0 +1,55 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+.header {
+  list-style: none;
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: row;
+  background-color: purple;
+  width: 100vw;
+  height: 70px;
+}
+
+.header > .item {
+  background-color: cyan;
+  width: 50px;
+  height: 20px;
+  margin-top: 25px;
+  margin-left: 10px;
+}
+
+.container {
+  justify-content: center;
+  display: flex;
+  flex-direction: row;
+  width: 100vw;
+  height: 500px;
+  flex-wrap: wrap;
+}
+
+.container > * {
+  margin: 5px;
+}
+
+.content {
+  background-color: yellow;
+  width: 65vw;
+  height: 500px;
+  order: 2;
+}
+
+.sidebar {
+  background-color: green;
+  width: 25vw;
+  height: 500px;
+  order: 1;
+}
+
+.footer {
+  background-color: grey;
+  width: 90%;
+  height: 50px;
+  order: 3;
+}

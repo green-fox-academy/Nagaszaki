@@ -1,0 +1,34 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-direction: column;
+  width: 100vw;
+}
+
+.item {
+  align-self: flex-end;
+}
+
+.item_green {
+  background-color: green;
+  width: 100%;
+  height: 100px;
+  order: 1;
+}
+.item_yellow {
+  background-color: yellow;
+  width: 100%;
+  height: 200px;
+  order: 3;
+}
+.item_purple {
+  background-color: purple;
+  width: 100%;
+  height: 100px;
+  order: 2;
+}

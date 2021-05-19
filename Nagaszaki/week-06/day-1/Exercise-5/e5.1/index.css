@@ -1,0 +1,57 @@
+header {
+  list-style: none;
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: row;
+  background-color: cyan;
+  width: 97vw;
+  height: 70px;
+}
+
+.item_black {
+  background-color: black;
+  width: 50px;
+  height: 50px;
+  margin: 10px;
+}
+
+.container {
+  justify-content: space-between;
+  display: flex;
+  flex-direction: row;
+  width: 97vw;
+  height: 500px;
+}
+
+.container > * {
+  margin: 5px;
+}
+
+.item_orange {
+  background-color: orangered;
+  height: 490px;
+  width: 25%;
+  order: 1;
+}
+
+.item_red {
+  display: flex;
+  background-color: red;
+  align-items: flex-end;
+  height: 490px;
+  width: 50%;
+  order: 1;
+}
+.item_purple {
+  background-color: purple;
+  height: 490px;
+  width: 25%;
+  order: 1;
+}
+
+footer {
+  background-color: blue;
+  width: 97vw;
+  height: 50px;
+  order: 3;
+}
