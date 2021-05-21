@@ -58,3 +58,7 @@
 .imglist > img {
   max-width: 10vw;
 }
+
+#active {
+  border: 3px solid black;
+}

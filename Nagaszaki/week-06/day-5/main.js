@@ -28,11 +28,17 @@ function plus(){
   title.textContent = texts[i];
   descript.textContent = alttexts[i];
   display.appendChild(description);
-  display.removeChild(imglist);
-  display.appendChild(imglist);
+  imglist.textContent='';
+
   
   for (let j = 0 ; j < texts.length; j++){
     const img = document.createElement('img');
+    img.classList = 'showoff';
+
+    if (j === i){
+      img.id = 'active';
+    }
+
     img.setAttribute('src',j+'.jpg');
     imglist.appendChild(img);
   }
@@ -44,6 +50,7 @@ function minus(){
   } else {
     i--;
   }
+
   display.removeChild(displayedimg);
   displayedimg.setAttribute('src',i+'.jpg');
   display.appendChild(displayedimg);
@@ -51,6 +58,20 @@ function minus(){
   title.textContent = texts[i];
   descript.textContent = alttexts[i];
   display.appendChild(description);
+
+  imglist.textContent='';
+
+  for (let j = 0 ; j < texts.length; j++){
+    const img = document.createElement('img');
+    img.classList = 'showoff';
+
+    if (j === i){
+      img.id = 'active';
+    }
+
+    img.setAttribute('src',j+'.jpg');
+    imglist.appendChild(img);
+  }
 }
 
 gallery.classList = 'gallery';
@@ -79,6 +100,9 @@ imglist.classList = 'imglist';
 
 for (let j = 0 ; j < texts.length; j++){
   const img = document.createElement('img');
+  if (j === i){
+    img.id = 'active';
+  }
   img.setAttribute('src',j+'.jpg');
   imglist.appendChild(img);
 }
