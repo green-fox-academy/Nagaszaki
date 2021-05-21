@@ -11,26 +11,39 @@ const imglist = document.createElement('div');
 
 let i=0;
 
-let texts = ['(z)Űrös kép','Cat bread','Lick']
-let alttexts = ['Huston cat has problemhs','Hate my human','Mlem']
+let texts = [{
+  title:'(z)Űrös kép',
+  alt:'Huston cat has problemhs'
+},
+{
+  title:'Cat bread',
+  alt:'Hate my human'
+},
+{
+  title:'Lick',
+  alt:'Mlem'
+}];
 
-function plus(){
-  if (i >= 2){
-    i = 0;
-  } else {
-    i++;
+function setdisplay(number){
+
+  if(number != null){
+    i=number;
   }
-
   display.removeChild(displayedimg);
   displayedimg.setAttribute('src',i+'.jpg');
   display.appendChild(displayedimg);
   display.removeChild(description);
-  title.textContent = texts[i];
-  descript.textContent = alttexts[i];
+  title.textContent = texts[i].title;
+  descript.textContent = texts[i].alt;
   display.appendChild(description);
+  if(number != null){
+    render();
+  }
+}
+
+function render(){
   imglist.textContent='';
 
-  
   for (let j = 0 ; j < texts.length; j++){
     const img = document.createElement('img');
     img.classList = 'showoff';
@@ -40,8 +53,22 @@ function plus(){
     }
 
     img.setAttribute('src',j+'.jpg');
+    img.onclick = () => setdisplay(j);
     imglist.appendChild(img);
   }
+}
+
+function plus(){
+  if (i >= 2){
+    i = 0;
+  } else {
+    i++;
+  }
+
+  setdisplay();
+
+  render();
+
 }
 
 function minus(){
@@ -51,27 +78,9 @@ function minus(){
     i--;
   }
 
-  display.removeChild(displayedimg);
-  displayedimg.setAttribute('src',i+'.jpg');
-  display.appendChild(displayedimg);
-  display.removeChild(description);
-  title.textContent = texts[i];
-  descript.textContent = alttexts[i];
-  display.appendChild(description);
+  setdisplay();
 
-  imglist.textContent='';
-
-  for (let j = 0 ; j < texts.length; j++){
-    const img = document.createElement('img');
-    img.classList = 'showoff';
-
-    if (j === i){
-      img.id = 'active';
-    }
-
-    img.setAttribute('src',j+'.jpg');
-    imglist.appendChild(img);
-  }
+  render();
 }
 
 gallery.classList = 'gallery';
@@ -86,8 +95,8 @@ button_right.onclick = () => plus();
 
 description.classList = 'description';
 
-title.textContent = texts[i];
-descript.textContent = alttexts[i];
+title.textContent = texts[i].title;
+descript.textContent = texts[i].alt;
 title.classList = 'title';
 descript.classList = 'descript';
 
@@ -98,14 +107,7 @@ display.classList = 'display';
 
 imglist.classList = 'imglist';
 
-for (let j = 0 ; j < texts.length; j++){
-  const img = document.createElement('img');
-  if (j === i){
-    img.id = 'active';
-  }
-  img.setAttribute('src',j+'.jpg');
-  imglist.appendChild(img);
-}
+render();
 
 content.appendChild(gallery);
 gallery.appendChild(button_left);
