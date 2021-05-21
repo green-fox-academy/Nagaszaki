@@ -1,0 +1,43 @@
+.gallery {
+  background-color: white;
+  display: flex;
+  align-items: center;
+  margin-left: 20vw;
+  width: 100vw;
+}
+
+.button_left {
+  background-color: white;
+  padding: 20px;
+  margin-top: -5%;
+}
+
+.button_right {
+  background-color: white;
+  transform: rotate(180deg);
+  justify-self: flex-end;
+  padding: 20px;
+  margin-top: -5%;
+}
+.button_right:hover {
+  opacity: 80%;
+}
+.button_left:hover {
+  opacity: 80%;
+}
+
+.description {
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  transform: translateY(-100%);
+}
+
+.display {
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+}
+
+.descript {
+  opacity: 80%;
+}
