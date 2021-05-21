@@ -21,15 +21,18 @@
 }
 .button_right:hover {
   opacity: 80%;
+  cursor: pointer;
 }
 .button_left:hover {
   opacity: 80%;
+  cursor: pointer;
 }
 
 .description {
   background-color: rgba(0, 0, 0, 0.5);
   color: white;
   transform: translateY(-100%);
+  order: 2;
 }
 
 .display {
@@ -38,6 +41,20 @@
   flex-direction: column;
 }
 
+.displayedimg {
+  order: 1;
+}
+
 .descript {
   opacity: 80%;
+}
+
+.imglist {
+  display: flex;
+  justify-content: space-evenly;
+  order: 3;
+}
+
+.imglist > img {
+  max-width: 10vw;
 }

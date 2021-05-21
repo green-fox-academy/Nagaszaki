@@ -7,6 +7,7 @@ const title = document.createElement('h1');
 const descript = document.createElement('p');
 const display = document.createElement('div');
 const displayedimg = document.createElement('img');
+const imglist = document.createElement('div');
 
 let i=0;
 
@@ -27,6 +28,14 @@ function plus(){
   title.textContent = texts[i];
   descript.textContent = alttexts[i];
   display.appendChild(description);
+  display.removeChild(imglist);
+  display.appendChild(imglist);
+  
+  for (let j = 0 ; j < texts.length; j++){
+    const img = document.createElement('img');
+    img.setAttribute('src',j+'.jpg');
+    imglist.appendChild(img);
+  }
 }
 
 function minus(){
@@ -66,6 +75,14 @@ displayedimg.setAttribute('src',i+'.jpg');
 
 display.classList = 'display';
 
+imglist.classList = 'imglist';
+
+for (let j = 0 ; j < texts.length; j++){
+  const img = document.createElement('img');
+  img.setAttribute('src',j+'.jpg');
+  imglist.appendChild(img);
+}
+
 content.appendChild(gallery);
 gallery.appendChild(button_left);
 gallery.appendChild(display);
@@ -74,3 +91,4 @@ display.appendChild(description);
 description.appendChild(title);
 description.appendChild(descript);
 gallery.appendChild(button_right);
+display.appendChild(imglist);
