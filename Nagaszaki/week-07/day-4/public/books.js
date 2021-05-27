@@ -98,10 +98,3 @@ function renderTable(){
 window.onload = () => {
   renderTable();
 }
-
-const button = document.createElement('button');
-button.innerText = 'Nyommeg';
-document.querySelector('body').appendChild(button);
-button.onclick = () =>{
-  renderTable();
-}
