@@ -1,0 +1,23 @@
+#container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  height: 100px;
+  text-align: center;
+}
+#left {
+  background-color: yellow;
+  border: 5px solid purple;
+  padding-top: 20%;
+}
+#middle {
+  background-color: green;
+  border: 5px solid purple;
+  grid-column-start: 2;
+  grid-column-end: 4;
+  padding-top: 10%;
+}
+#right {
+  background-color: yellow;
+  border: 5px solid purple;
+  padding-top: 20%;
+}
