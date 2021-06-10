@@ -26,11 +26,11 @@ app.get('/', (req,res) => {
 })
 
 app.get('/posts', (reg,res) => {
-  conn.query('SELECT * FROM posts', (err, row) => {
+  conn.query('SELECT * FROM posts', (err, rows) => {
     if (err) {
       res.status(500).json(err);
     } 
-    res.status(200).json(row);
+    res.status(200).json(rows);
   })
 })
 
@@ -51,7 +51,7 @@ app.put('/posts/:id/upvote', (req,res) => {
 
       res.status(500).json(err);
     }
-    res.status(200).json({"message" : "Updated the record succesfully"});
+    res.status(200).redirect('/');
   }
   )
 })
@@ -64,7 +64,7 @@ app.put('/posts/:id/downvote', (req,res) => {
 
       res.status(500).json(err);
     }
-    res.status(200).json({"message" : "Updated the record succesfully"});
+    res.status(200).redirect('/');
   }
   )
 })
