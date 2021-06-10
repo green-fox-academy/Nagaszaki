@@ -1,0 +1,27 @@
+th {
+  background-color: black;
+  color: white;
+  border: 2px solid slategray;
+  padding: 20px 40px;
+}
+tr {
+  color: black;
+}
+td {
+  border: 2px solid slategray;
+  padding: 20px 40px;
+}
+tr:nth-child(even) {
+  background-color: grey;
+}
+table {
+  border-collapse: collapse;
+  margin: auto;
+  background-color: white;
+}
+body {
+  background-color: lightskyblue;
+}
+.notheader > td:nth-child(even)::before {
+  content: "$";
+}

@@ -1,0 +1,37 @@
+.container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.container > div {
+  height: 20px;
+}
+
+#green {
+  background-color: lime;
+  width: 20%;
+}
+#yellow {
+  background-color: yellow;
+  width: 60%;
+}
+#purple {
+  background-color: purple;
+  width: 20%;
+}
+
+@media screen and (max-width: 600px) {
+  .container {
+    flex-direction: column;
+  }
+  #green {
+    width: 100%;
+  }
+  #yellow {
+    width: 100%;
+  }
+  #purple {
+    width: 100%;
+  }
+}

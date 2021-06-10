@@ -1,0 +1,53 @@
+body {
+  background-color: DarkSlateBlue;
+}
+.container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  row-gap: 20px;
+  column-gap: 20px;
+}
+
+.container > button {
+  padding: 10px;
+  border-radius: 12px;
+  border: none;
+}
+
+#blue {
+  background-color: blue;
+  box-shadow: 0px 5px darkblue;
+}
+
+#green {
+  background-color: green;
+  box-shadow: 0px 5px darkgreen;
+}
+
+#red {
+  background-color: red;
+  box-shadow: 0px 5px darkred;
+}
+
+#sky {
+  background-color: skyblue;
+  box-shadow: 0px 5px DeepSkyBlue;
+}
+
+#black {
+  background-color: #262626;
+  color: white;
+  box-shadow: 0px 5px black;
+}
+
+#white {
+  box-shadow: 0px 5px lightgray;
+}
+
+.container > button:hover {
+  opacity: 180%;
+}
+.container > button:active {
+  opacity: 60%;
+}
