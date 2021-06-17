@@ -56,5 +56,11 @@ app.get('/playlist-tracks/:id', (req, res) => {
 })
 
 app.get('/playlists/', (req, res) => {
-
+  conn.query('SELECT * FROM playlists', (err, row) => {
+    if (err) {
+      res.status(500).json(err);
+      return;
+    }
+    res.status(200).json(row);
+  })
 })
