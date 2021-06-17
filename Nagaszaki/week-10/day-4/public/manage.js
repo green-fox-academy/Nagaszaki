@@ -11,24 +11,24 @@ form.addEventListener('submit', (event) => {
 
   const answers = [];
   if(document.querySelector('#radiofirst').checked){
-    answers.push({answer_1: document.querySelector('#first').value, is_correct:1});
+    answers.push({answer: document.querySelector('#first').value, is_correct:1});
   } else {
-    answers.push({answer_1: document.querySelector('#first').value, is_correct:0});
+    answers.push({answer: document.querySelector('#first').value, is_correct:0});
   }
   if(document.querySelector('#radiosecond').checked){
-    answers.push({answer_2: document.querySelector('#second').value, is_correct:1});
+    answers.push({answer: document.querySelector('#second').value, is_correct:1});
   } else {
-    answers.push({answer_2: document.querySelector('#second').value, is_correct:0});
+    answers.push({answer: document.querySelector('#second').value, is_correct:0});
   }
   if(document.querySelector('#radiothird').checked){
-    answers.push({answer_3: document.querySelector('#third').value, is_correct:1});
+    answers.push({answer: document.querySelector('#third').value, is_correct:1});
   } else {
-    answers.push({answer_3: document.querySelector('#third').value, is_correct:0});
+    answers.push({answer: document.querySelector('#third').value, is_correct:0});
   }
   if(document.querySelector('#radiofourth').checked){
-    answers.push({answer_1: document.querySelector('#fourth').value, is_correct:1});
+    answers.push({answer: document.querySelector('#fourth').value, is_correct:1});
   } else {
-    answers.push({answer_1: document.querySelector('#fourth').value, is_correct:0});
+    answers.push({answer: document.querySelector('#fourth').value, is_correct:0});
   }
   
   const data = {

@@ -29,18 +29,25 @@ app.get('/', (req, res) => {
 });
 
 app.get('/api/game', (req, res) => {
-  let random = Math.floor(Math.random() * 10) + 1;
-  conn.query('SELECT * FROM answers INNER JOIN questions ON answers.question_id = questions.id WHERE question_id = ?;',[random],(err,row) =>{
+  conn.query('SELECT * FROM questions',(err,row) =>{
     if(err){
       res.status(500).json(err);
       return;
     }
-    res.status(200).json(row);
+    let random = Math.floor(Math.random() * row.length) + 1;
+    conn.query('SELECT * FROM answers INNER JOIN questions ON answers.question_id = questions.id WHERE question_id = ?;',[random],(err,row) =>{
+      if(err){
+        res.status(500).json(err);
+        return;
+      }
+      res.status(200).json(row);
+    });
   });
+  
+  
 });
 
 app.get('/api/questions', (req, res) => {
-  let random = Math.floor(Math.random() * 10) + 1;
   conn.query('SELECT * FROM questions',(err,row) =>{
     if(err){
       res.status(500).json(err);
@@ -55,26 +62,28 @@ app.post('/api/questions', (req, res) => {
   conn.query('SELECT id FROM questions;',(err,row) =>{
     if(err){
       res.status(500).json(err);
+      console.log(err);
       return;
     }
     id = row.length+1;
-  });
-  console.log(req);
-  conn.query('INSERT INTO questions (question) VALUES(?);',[req.body.question],(err,row) =>{
-    if(err){
-      res.status(500).json(err);
-      return;
-    };
-  });
-  let i = 1;
-  req.body.answers.forEach(answer => {
-    conn.query('INSERT INTO answers (question_id,answer,is_correct) VALUES(?,?,?);',[id,answer.answer_+i,answer.is_correct],(err,row) =>{
+    conn.query('INSERT INTO questions (question) VALUES(?);',[req.body.question],(err,row) =>{
       if(err){
         res.status(500).json(err);
+        console.log(err);
         return;
       };
+      req.body.answers.forEach((element,index) => {
+        conn.query('INSERT INTO answers (question_id,answer,is_correct) VALUES(?,?,?);',[id,element.answer,element.is_correct],(err,row) =>{
+          if(err){
+            res.status(500).json(err);
+            console.log(err);
+            return;
+          };
+          if(index === 3){
+            res.status(200).json('Updated succesfully!');
+          };
+        });
+      });
     });
-    i++;
-  });
-    res.status(200).json('Updated succesfully!');
+  }); 
 });
