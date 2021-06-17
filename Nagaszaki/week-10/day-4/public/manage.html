@@ -7,7 +7,7 @@
   <title>Document</title>
 </head>
 <body>
-  <form>
+  <form action="/api/questions" method="POST">
     <input type="text" id="question" name="question" placeholder="Type your question here"><br>
     <h2>Answers</h2><br>
     <label for="first">#1</label>
@@ -19,17 +19,17 @@
     <label for="fourth">#4</label>
     <input type="text" id="fourth" name="fourth" placeholder="Type your answer here"><br>
     <h2>Which is the correct answer?</h2>
-    <input type="radio" id="first" name="select" value="first">
-    <label for="first">#1</label>
-    <input type="radio" id="second" name="select" value="second">
-    <label for="second">#2</label>
-    <input type="radio" id="third" name="select" value="third">
-    <label for="third">#3</label>
-    <input type="radio" id="fourth" name="select" value="fourth">
-    <label for="fourth">#4</label>
+    <input type="radio" id="radiofirst" name="select" value="radiofirst">
+    <label for="radiofirst">#1</label>
+    <input type="radio" id="radiosecond" name="select" value="radiosecond">
+    <label for="radiosecond">#2</label>
+    <input type="radio" id="radiothird" name="select" value="radiothird">
+    <label for="radiothird">#3</label>
+    <input type="radio" id="radiofourth" name="select" value="radiofourth">
+    <label for="radiofourth">#4</label>
     <input type="submit" value="Submit">
   </form>
-  <a href='http://localhost:3000/'>Game</a>
+  <a href='http://localhost:3000/'>Back To The Game</a>
   <script src="manage.js"></script>
 </body>
 </html>

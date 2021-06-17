@@ -51,26 +51,30 @@ app.get('/api/questions', (req, res) => {
 });
 
 app.post('/api/questions', (req, res) => {
+  let id;
   conn.query('SELECT id FROM questions;',(err,row) =>{
     if(err){
       res.status(500).json(err);
       return;
     }
-    let id = row.length;
+    id = row.length+1;
   });
-  conn.query('INSERT INTO question (question) VALUES(?);',[req.question],(err,row) =>{
+  console.log(req);
+  conn.query('INSERT INTO questions (question) VALUES(?);',[req.body.question],(err,row) =>{
     if(err){
       res.status(500).json(err);
       return;
     };
-    req.answers.forEach(answer => {
-      conn.query('INSERT INTO answers (question_id,answer,is_correct) VALUES(?,?,?);',[id,req.question,answer.is_correct],(err,row) =>{
-        if(err){
-          res.status(500).json(err);
-          return;
-        };
-        res.status(200).json(row);
-      });
-    });
   });
+  let i = 1;
+  req.body.answers.forEach(answer => {
+    conn.query('INSERT INTO answers (question_id,answer,is_correct) VALUES(?,?,?);',[id,answer.answer_+i,answer.is_correct],(err,row) =>{
+      if(err){
+        res.status(500).json(err);
+        return;
+      };
+    });
+    i++;
+  });
+    res.status(200).json('Updated succesfully!');
 });
