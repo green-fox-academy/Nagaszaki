@@ -87,3 +87,21 @@ app.post('/api/questions', (req, res) => {
     });
   }); 
 });
+
+app.delete('/api/questions/:id', (req, res) => {
+  conn.query('DELETE FROM questions WHERE id = ?;', [req.params.id], (err, rows) => {
+    if (err) {
+      console.log(err.sqlMessage);
+      res.status(500).json({ message: 'Internal Server Error' });
+      return;
+    }
+    conn.query('DELETE FROM answers WHERE question_id = ?;', [req.params.id], (err, rows) => {
+      if (err) {
+        console.log(err.sqlMessage);
+        res.status(500).json({ message: 'Internal Server Error' });
+        return;
+      }
+      res.json('Question has been deleted');
+    });
+  });
+});
